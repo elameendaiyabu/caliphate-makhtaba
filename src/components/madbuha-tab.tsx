@@ -14,6 +14,8 @@ const books: Book[] = [
     author: "Harper Lee",
     genre: "Classic",
     year: 1960,
+    description: "",
+    coverImage: "",
   },
   {
     id: 2,
@@ -21,6 +23,8 @@ const books: Book[] = [
     author: "George Orwell",
     genre: "Science Fiction",
     year: 1949,
+    description: "",
+    coverImage: "",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const books: Book[] = [
     author: "Jane Austen",
     genre: "Romance",
     year: 1813,
+    description: "",
+    coverImage: "",
   },
   {
     id: 4,
@@ -35,6 +41,8 @@ const books: Book[] = [
     author: "F. Scott Fitzgerald",
     genre: "Classic",
     year: 1925,
+    description: "",
+    coverImage: "",
   },
   {
     id: 5,
@@ -42,6 +50,8 @@ const books: Book[] = [
     author: "Suzanne Collins",
     genre: "Young Adult",
     year: 2008,
+    description: "",
+    coverImage: "",
   },
   {
     id: 6,
@@ -49,6 +59,8 @@ const books: Book[] = [
     author: "J.D. Salinger",
     genre: "Classic",
     year: 1951,
+    description: "",
+    coverImage: "",
   },
   {
     id: 7,
@@ -56,6 +68,8 @@ const books: Book[] = [
     author: "J.K. Rowling",
     genre: "Fantasy",
     year: 1997,
+    description: "",
+    coverImage: "",
   },
   {
     id: 8,
@@ -63,6 +77,8 @@ const books: Book[] = [
     author: "J.R.R. Tolkien",
     genre: "Fantasy",
     year: 1937,
+    description: "",
+    coverImage: "",
   },
 ];
 

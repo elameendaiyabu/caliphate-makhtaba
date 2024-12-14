@@ -6,8 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { Heart } from "lucide-react";
 
 interface BookGridProps {
   books: Book[];
@@ -20,7 +22,7 @@ export default function BookGrid({ books }: BookGridProps) {
         <Card key={book.id} className="flex flex-col">
           <CardHeader>
             <Image
-              src={`/placeholder.svg`}
+              src={book.coverImage == "" ? "/placeholder.svg" : book.coverImage}
               width={250}
               height={250}
               style={{ objectFit: "contain" }}
@@ -39,9 +41,15 @@ export default function BookGrid({ books }: BookGridProps) {
               {book.genre} • {book.year}
             </p>
           </CardContent>
-          <CardFooter>
-            <Button variant="outline" className="w-full">
+          <CardFooter className="flex gap-2">
+            <Link
+              href={`/book/${book.id}`}
+              className="w-full underline p-2 bg-background border hover:bg-muted flex justify-center rounded-md hover:text-emerald-400"
+            >
               Read Now
+            </Link>
+            <Button variant="outline">
+              <Heart className="hover:fill-red-500" />
             </Button>
           </CardFooter>
         </Card>
