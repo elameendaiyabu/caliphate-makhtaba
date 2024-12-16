@@ -7,6 +7,7 @@ export default async function Page() {
     data: { user },
   } = await supabase.auth.getUser();
 
+
   return (
     <div className="px-5 md:px-8">
       <AccountSettings user={user} />

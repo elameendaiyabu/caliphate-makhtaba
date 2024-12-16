@@ -1,23 +1,16 @@
-"use client";
-
 import BookDetail from "@/components/book-detail";
+import { createClient } from "@/utils/supabase/server";
 
-// Mock function to fetch book data
-// In a real app, this would be an API call
-const book = {
-  id: 1,
-  title: "To Kill a Mockingbird",
-  author_id: "Harper Lee",
-  genre: "Classic",
-  year: 1960,
-  description:
-    "To Kill a Mockingbird is a novel by Harper Lee published in 1960. It was immediately successful, winning the Pulitzer Prize, and has become a classic of modern American literature.",
-  cover_image:
-    "/placeholder.svg?height=400&width=300&text=To+Kill+a+Mockingbird",
-  book: "",
-};
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const supabase = await createClient();
 
-export default function BookPage() {
+  const { data: book } = await supabase
+    .from("books")
+    .select()
+    .eq("id", id)
+    .single();
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow container mx-auto px-4 py-8">

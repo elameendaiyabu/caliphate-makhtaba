@@ -1,15 +1,12 @@
-import { Author } from "@/types/author";
-import { Book } from "@/types/book";
+import { AuthorsCard } from "@/components/authors-grid";
+import { createClient } from "@/utils/supabase/server";
 import { Settings2 } from "lucide-react";
-import { AuthorsCard } from "./authors-grid";
 
-export default function AuthorsTab({
-  books,
-  authors,
-}: {
-  books: Book[] | null;
-  authors: Author[] | null;
-}) {
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: books } = await supabase.from("books").select("*");
+  const { data: authors } = await supabase.from("authors").select("*");
+
   return (
     <div className="flex p-2 flex-col gap-4">
       <div className="flex justify-between">

@@ -56,12 +56,12 @@ const items = [
 const footerItems = [
   {
     title: "Settings",
-    url: "#",
+    url: "/account",
     icon: Settings,
   },
   {
     title: "Help",
-    url: "#",
+    url: "/help",
     icon: Info,
   },
 ];

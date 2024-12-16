@@ -4,8 +4,10 @@ import AllTab from "./all-tab";
 import MaktubaTab from "./maktuba-tab";
 import MadbuhaTab from "./madbuha-tab";
 import AuthorsTab from "./authors-tab";
+import { Book } from "@/types/book";
+import { Author } from "@/types/author";
 
-export default function HomeTab() {
+export default function HomeTab({ books, authors }: { books: Book[] | null, authors: Author[] | null }) {
   return (
     <Tabs defaultValue="all" className="p-2 md:p-5">
       <TabsList className="mb-3">
@@ -16,16 +18,16 @@ export default function HomeTab() {
       </TabsList>
       <Separator className="mb-6" />
       <TabsContent value="all">
-        <AllTab />
+        <AllTab books={books} authors={authors} />
       </TabsContent>
       <TabsContent value="maktuba">
-        <MaktubaTab />
+        <MaktubaTab books={books} authors={authors} />
       </TabsContent>
       <TabsContent value="madbuha">
-        <MadbuhaTab />
+        <MadbuhaTab books={books} authors={authors} />
       </TabsContent>
       <TabsContent value="authors">
-        <AuthorsTab />
+        <AuthorsTab books={books} authors={authors} />
       </TabsContent>
     </Tabs>
   );

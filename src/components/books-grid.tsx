@@ -10,32 +10,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Heart } from "lucide-react";
+import { Author } from "@/types/author";
 
 interface BookGridProps {
-  books: Book[];
+  books: Book[] | null;
+  authors: Author[] | null;
 }
 
-export default function BookGrid({ books }: BookGridProps) {
+export default function BookGrid({ books, authors }: BookGridProps) {
+  const findAuthorById = (authorId: string) =>
+    authors?.find((author) => author.id == parseInt(authorId));
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {books.map((book) => (
+      {books?.map((book) => (
         <Card key={book.id} className="flex flex-col">
           <CardHeader>
             <Image
-              src={book.cover_image == "" ? "/placeholder.svg" : book.cover_image}
+              src={
+                book.cover_image == "" ? "/placeholder.svg" : book.cover_image
+              }
               width={250}
               height={250}
               style={{ objectFit: "contain" }}
               loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              alt={book.title}
+              alt={`cover of  ${book.title}`}
               className="w-full h-40 object-cover rounded-t-lg"
             />
           </CardHeader>
           <CardContent className="flex-grow">
             <CardTitle className="text-lg mb-2">{book.title}</CardTitle>
             <p className="text-sm text-muted-foreground mb-2">
-              by {book.author_id}
+              by {`${findAuthorById(book.author_id)?.name}`}
             </p>
             <p className="text-sm text-muted-foreground">
               {book.genre} • {book.year}
