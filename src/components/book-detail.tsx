@@ -8,6 +8,9 @@ interface BookDetailProps {
 }
 
 export default function BookDetail({ book }: BookDetailProps) {
+  const url = book?.book == null ? "" : book.book;
+  const encodedURL = encodeURIComponent(url);
+
   return (
     <div className="grid md:grid-cols-3 gap-8">
       <div className="md:col-span-1">
@@ -30,7 +33,7 @@ export default function BookDetail({ book }: BookDetailProps) {
           </CardContent>
           <CardFooter>
             <Link
-              href={`${book?.book}`}
+              href={`/book/${book?.id}/read/${encodedURL}`}
               className="w-full p-2 rounded-md text-center hover:text-white bg-accent hover:bg-accent-foreground"
             >
               Start Reading

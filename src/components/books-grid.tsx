@@ -33,7 +33,6 @@ export default function BookGrid({ books, authors }: BookGridProps) {
               width={250}
               height={250}
               style={{ objectFit: "contain" }}
-              loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt={`cover of  ${book.title}`}
               className="w-full h-40 object-cover rounded-t-lg"
