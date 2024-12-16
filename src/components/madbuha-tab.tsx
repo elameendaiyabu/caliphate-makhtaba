@@ -11,74 +11,82 @@ const books: Book[] = [
   {
     id: 1,
     title: "To Kill a Mockingbird",
-    author: "Harper Lee",
+    author_id: "Harper Lee",
     genre: "Classic",
     year: 1960,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 2,
     title: "1984",
-    author: "George Orwell",
+    author_id: "George Orwell",
     genre: "Science Fiction",
     year: 1949,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 3,
     title: "Pride and Prejudice",
-    author: "Jane Austen",
+    author_id: "Jane Austen",
     genre: "Romance",
     year: 1813,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 4,
     title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
+    author_id: "F. Scott Fitzgerald",
     genre: "Classic",
     year: 1925,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 5,
     title: "The Hunger Games",
-    author: "Suzanne Collins",
+    author_id: "Suzanne Collins",
     genre: "Young Adult",
     year: 2008,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 6,
     title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
+    author_id: "J.D. Salinger",
     genre: "Classic",
     year: 1951,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 7,
     title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
+    author_id: "J.K. Rowling",
     genre: "Fantasy",
     year: 1997,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
   {
     id: 8,
     title: "The Hobbit",
-    author: "J.R.R. Tolkien",
+    author_id: "J.R.R. Tolkien",
     genre: "Fantasy",
     year: 1937,
     description: "",
-    coverImage: "",
+    cover_image: "",
+    book: ""
   },
 ];
 

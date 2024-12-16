@@ -14,7 +14,7 @@ export default function BookDetail({ book }: BookDetailProps) {
         <Card>
           <CardContent className="p-4">
             <Image
-              src={book.coverImage == "" ? "/placeholder.svg" : book.coverImage}
+              src={book.cover_image == "" ? "/placeholder.svg" : book.cover_image}
               style={{ objectFit: "contain" }}
               loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -31,7 +31,7 @@ export default function BookDetail({ book }: BookDetailProps) {
       </div>
       <div className="md:col-span-2 space-y-6">
         <h1 className="text-3xl font-bold">{book.title}</h1>
-        <p className="text-xl text-muted-foreground">by {book.author}</p>
+        <p className="text-xl text-muted-foreground">by {book.author_id}</p>
         <div className="flex space-x-4 text-sm text-muted-foreground">
           <span>{book.genre}</span>
           <span>•</span>

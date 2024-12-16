@@ -8,6 +8,7 @@ import {
   Settings,
   Info,
   LogIn,
+  LogOut,
 } from "lucide-react";
 
 import {
@@ -25,6 +26,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { User } from "@supabase/supabase-js";
+import { Button } from "./ui/button";
 
 // Menu items.
 const items = [
@@ -61,16 +64,10 @@ const footerItems = [
     url: "#",
     icon: Info,
   },
-  {
-    title: "Sign In",
-    url: "#",
-    icon: LogIn,
-  },
 ];
 
-export function AppSidebar() {
+export function AppSidebar({ user }: { user: User | null }) {
   const pathname = usePathname();
-  console.log(pathname);
 
   const index = items.map((e) => e.url).indexOf(pathname);
   const [currentIndex, setCurrentIndex] = useState(index);
@@ -115,13 +112,38 @@ export function AppSidebar() {
               {footerItems.map((item) => (
                 <SidebarMenuItem className="mt-2" key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              {user == null ? (
+                <SidebarMenuItem className="mt-2">
+                  <SidebarMenuButton asChild>
+                    <Link href="/auth/signin">
+                      <LogIn />
+                      <span>Sign In</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ) : (
+                <form method="post" action="/auth/signout">
+                  <SidebarMenuItem className="mt-2">
+                    <SidebarMenuButton asChild>
+                      <Button
+                        type="submit"
+                        className="justify-start"
+                        variant="ghost"
+                      >
+                        <LogOut />
+                        <span>Log Out</span>
+                      </Button>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </form>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

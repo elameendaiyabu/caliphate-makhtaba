@@ -14,7 +14,7 @@ export default function AuthenticationPage() {
     <>
       <div className="container relative md:h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <Link
-          href="/signin"
+          href="/auth/signin"
           className={cn(
             buttonVariants({ variant: "ghost" }),
             "absolute right-4 top-4 hidden md:grid md:right-8 md:top-8",
@@ -56,7 +56,7 @@ export default function AuthenticationPage() {
                 Already have an account ?
               </p>
               <Link
-                href="/signin"
+                href="/auth/signin"
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
                   "flex w-full border shadow-black justify-center",

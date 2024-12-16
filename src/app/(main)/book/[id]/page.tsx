@@ -7,13 +7,14 @@ import BookDetail from "@/components/book-detail";
 const book = {
   id: 1,
   title: "To Kill a Mockingbird",
-  author: "Harper Lee",
+  author_id: "Harper Lee",
   genre: "Classic",
   year: 1960,
   description:
     "To Kill a Mockingbird is a novel by Harper Lee published in 1960. It was immediately successful, winning the Pulitzer Prize, and has become a classic of modern American literature.",
-  coverImage:
+  cover_image:
     "/placeholder.svg?height=400&width=300&text=To+Kill+a+Mockingbird",
+  book: "",
 };
 
 export default function BookPage() {

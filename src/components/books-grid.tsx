@@ -22,7 +22,7 @@ export default function BookGrid({ books }: BookGridProps) {
         <Card key={book.id} className="flex flex-col">
           <CardHeader>
             <Image
-              src={book.coverImage == "" ? "/placeholder.svg" : book.coverImage}
+              src={book.cover_image == "" ? "/placeholder.svg" : book.cover_image}
               width={250}
               height={250}
               style={{ objectFit: "contain" }}
@@ -35,7 +35,7 @@ export default function BookGrid({ books }: BookGridProps) {
           <CardContent className="flex-grow">
             <CardTitle className="text-lg mb-2">{book.title}</CardTitle>
             <p className="text-sm text-muted-foreground mb-2">
-              by {book.author}
+              by {book.author_id}
             </p>
             <p className="text-sm text-muted-foreground">
               {book.genre} • {book.year}
