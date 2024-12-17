@@ -2,14 +2,19 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Book } from "@/types/book";
 import Link from "next/link";
+import { Author } from "@/types/author";
 
 interface BookDetailProps {
   book: Book | null;
+  authors: Author[] | null;
 }
 
-export default function BookDetail({ book }: BookDetailProps) {
+export default function BookDetail({ book, authors }: BookDetailProps) {
   const url = book?.book == null ? "" : book.book;
   const encodedURL = encodeURIComponent(url);
+
+  const findAuthorById = (authorId: string) =>
+    authors?.find((author) => author.id == parseInt(authorId));
 
   return (
     <div className="grid md:grid-cols-3 gap-8">
@@ -43,7 +48,11 @@ export default function BookDetail({ book }: BookDetailProps) {
       </div>
       <div className="md:col-span-2 space-y-6">
         <h1 className="text-3xl font-bold">{book?.title}</h1>
-        <p className="text-xl text-muted-foreground">by {book?.author_id}</p>
+        {book?.author_id && (
+          <p className="text-xl text-muted-foreground">
+            by {findAuthorById(book.author_id)?.name}{" "}
+          </p>
+        )}
         <div className="flex space-x-4 text-sm text-muted-foreground">
           <span>{book?.genre}</span>
           <span>•</span>

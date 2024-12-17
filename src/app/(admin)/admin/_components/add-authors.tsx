@@ -17,6 +17,8 @@ import { useDropzone } from "@uploadthing/react";
 import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { createClient } from "@/utils/supabase/client";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export default function AddAuthorForm() {
   const [files, setFiles] = useState<File[]>([]);
@@ -78,6 +80,8 @@ export default function AddAuthorForm() {
     toast({
       description: "Author added successful",
     });
+    revalidatePath("/admin");
+    redirect("/");
   };
 
   return (
