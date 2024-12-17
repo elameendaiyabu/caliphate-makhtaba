@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Book } from "@/types/book";
 import Link from "next/link";
 import { Author } from "@/types/author";
+import { Download } from "lucide-react";
 
 interface BookDetailProps {
   book: Book | null;
@@ -36,12 +37,18 @@ export default function BookDetail({ book, authors }: BookDetailProps) {
               className="w-full h-auto rounded-lg shadow-lg"
             />
           </CardContent>
-          <CardFooter>
+          <CardFooter className="grid gap-1 w-full grid-cols-4">
             <Link
               href={`/book/${book?.id}/read/${encodedURL}`}
-              className="w-full p-2 rounded-md text-center hover:text-white bg-accent hover:bg-accent-foreground"
+              className="w-full p-2 rounded-md text-center col-span-3 hover:text-white bg-accent hover:bg-accent-foreground"
             >
               Start Reading
+            </Link>
+            <Link
+              href={`${book?.book}`}
+              className="w-full p-2 rounded-md text-center flex justify-center hover:text-white bg-accent hover:bg-accent-foreground"
+            >
+              <Download />
             </Link>
           </CardFooter>
         </Card>
