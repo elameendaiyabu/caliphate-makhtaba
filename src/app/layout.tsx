@@ -30,13 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Analytics />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <NextTopLoader />
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
